@@ -4,10 +4,14 @@ import { useState } from 'react';
 import useReactQueryWithQuiz from '../helpers/fetchQuiz';
 import { useContext } from 'react';
 import { GameStateContext } from '../helpers/Contexts';
-
+import { useLocation } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 function Quiz() {
 	const [currentQuestion, setCurrentQuestion] = useState(0);
 	const [optionChosen, setOptionChosen] = useState('');
+
+	const location = useLocation();
+	const quizId = location.pathname.split('/')[2];
 
 	const { score, setScore, gameState, setGameState } =
 		useContext(GameStateContext);
@@ -31,7 +35,7 @@ function Quiz() {
 	};
 
 	const { quiz, loadingQuiz, isError, error, success } =
-		useReactQueryWithQuiz(1);
+		useReactQueryWithQuiz(quizId);
 	if (loadingQuiz) {
 		// console.log('Loading...');
 		return <div>Loading...</div>;
@@ -46,46 +50,42 @@ function Quiz() {
 
 	return (
 		<div className="Quiz">
-			<h1>{Questions[currentQuestion].prompt}</h1>
+			<h1>{quiz.question}</h1>
 			<div className="questions">
 				<button
 					onClick={() => {
 						chooseOption('A');
 					}}
 				>
-					{Questions[currentQuestion].A}
+					{quiz.A}
 				</button>
 				<button
 					onClick={() => {
 						chooseOption('B');
 					}}
 				>
-					{Questions[currentQuestion].B}
+					{quiz.B}
 				</button>
 				<button
 					onClick={() => {
 						chooseOption('B');
 					}}
 				>
-					{Questions[currentQuestion].B}
+					{quiz.C}
 				</button>
 				<button
 					onClick={() => {
 						chooseOption('D');
 					}}
 				>
-					{Questions[currentQuestion].D}
+					{quiz.D}
 				</button>
 			</div>
 
-			{currentQuestion === Questions.length - 1 ? (
-				<button onClick={finishQuiz} id="nextQuestion">
-					Finish Quiz
-				</button>
+			{quiz.end ? (
+				<Link to={'/finish'}>Finish Quiz</Link>
 			) : (
-				<button onClick={nextQuestion} id="nextQuestion">
-					Next Question
-				</button>
+				<Link to={`/quiz/${parseInt(quizId) + 1}`}>Next Question</Link>
 			)}
 		</div>
 	);

@@ -18,7 +18,7 @@ function App() {
 				<h1>Quiz App</h1>
 				<Routes>
 					<Route path="/" element={<Menu />} />
-					<Route path="/quiz" element={<Quiz />} />
+					<Route path="/quiz/:quizId" element={<Quiz />} />
 					<Route path="/finish" element={<EndScreen />} />
 				</Routes>
 			</div>
