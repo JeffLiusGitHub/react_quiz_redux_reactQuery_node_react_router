@@ -1,4 +1,15 @@
-const data = [
+type quizDataType = {
+	id: Number;
+	question: string;
+	A: string;
+	B: string;
+	C: string;
+	D: string;
+	answer: string;
+	end: boolean;
+};
+
+const data: quizDataType[] = [
 	{
 		id: 1,
 		question:
@@ -8,6 +19,7 @@ const data = [
 		C: 'y = -2x + 3',
 		D: 'y = -2x - 3',
 		answer: 'B',
+		end: false,
 	},
 
 	{
@@ -18,6 +30,7 @@ const data = [
 		C: 'Identity Property',
 		D: 'Inverse Property',
 		answer: 'D',
+		end: false,
 	},
 
 	{
@@ -28,6 +41,7 @@ const data = [
 		C: 'To find the x-intercept of a line',
 		D: 'To find the center point between two points',
 		answer: 'D',
+		end: false,
 	},
 
 	{
@@ -39,6 +53,7 @@ const data = [
 		C: '(x + 3)^2 + (y - 4)^2 = 25',
 		D: '(x + 3)^2 + (y + 4)^2 = 25',
 		answer: 'A',
+		end: false,
 	},
 
 	{
@@ -50,8 +65,7 @@ const data = [
 		C: 'y = 1/3x + 7',
 		D: 'y = 3x - 13',
 		answer: 'B',
+		end: true,
 	},
-
 ];
-
-module.exports = data;
+export default data;
