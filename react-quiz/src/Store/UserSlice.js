@@ -4,12 +4,10 @@ const userSlice = createSlice({
 	name: 'user',
 	initialState: {
 		isLogin: false,
-		isAdmin: false,
 		currentUser: null,
 		JWT: null,
-		isFetching: false,
 		error: false,
-		_id: null,
+		email: null,
 	},
 	reducers: {
 		loginStart: (state) => {
@@ -19,10 +17,7 @@ const userSlice = createSlice({
 		loginSuccess: (state, action) => {
 			state.isFetching = false;
 			state.error = false;
-			state.currentUser = action.payload.userName;
-			state.JWT = action.payload.jwtToken;
-			state._id = action.payload._id;
-			state.isAdmin = action.payload.isAdmin;
+			state.email = action.payload.email;
 			state.isLogin = true;
 		},
 		loginFailure: (state) => {
@@ -33,7 +28,6 @@ const userSlice = createSlice({
 		logOut: (state) => {
 			state.currentUser = null;
 			state.JWT = null;
-			state._id = null;
 			state.isLogin = false;
 			state.isAdmin = false;
 		},

@@ -3,12 +3,19 @@ import data from '../data';
 // import data from '../data.js';
 const router = express.Router();
 
-router.get('/quiz/:param', (req: Request, res: Response) => {
-	const param = parseInt(req.params.param);
-	if (isNaN(param)) {
-		return res.send({});
+router.get('/quiz/title', (req: Request, res: Response) => {
+	const title = data.map(({ id, question }) => ({ id, question }));
+	res.status(200).send(title);
+});
+
+router.get('/quiz/:id', (req: Request, res: Response) => {
+	const quizId = parseInt(req.params.id);
+	if (isNaN(quizId) || quizId < 1 || quizId > data.length) {
+		return res.status(200).send({});
 	}
-	res.send(param - 1 < data.length && param - 1 >= 0 ? data[param - 1] : {});
+	const dataWithId = data[quizId - 1];
+	const { answer, ...rest } = dataWithId;
+	res.status(200).send(rest);
 });
 
 export { router as quizDataRouter };
