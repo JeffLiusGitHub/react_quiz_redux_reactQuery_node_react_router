@@ -9,12 +9,10 @@ import Toolbar from '@mui/material/Toolbar';
 
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+import { convertUserName } from '../helpers/NameConvert';
+
 const Header = () => {
 	const { email } = useSelector((state) => state.user);
-	let userName = null;
-	if (email && email.indexOf('@') !== -1) {
-		userName = email.split('@')[0];
-	}
 
 	const links = [
 		!email && { label: 'SIGNUP', href: '/auth/signup' },
@@ -60,7 +58,7 @@ const Header = () => {
 								marginRight: '1rem',
 							}}
 						/>
-						<div>{email ? `Welcome: ${userName}` : 'QUIZ'}</div>
+						<div>{email ? `Welcome: ${convertUserName(email)}` : 'QUIZ'}</div>
 					</Link>
 					<ul style={{ display: 'flex', justifyContent: 'flex-end' }}>
 						{links}

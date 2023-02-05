@@ -25,8 +25,8 @@ function App() {
 				<LayoutComponent>
 					<Routes>
 						<Route path="/" element={<WelcomePage />} />
-						{/* {email && <Route path="/quiz/:quizId" element={<Quiz />} />} */}
-						{<Route path="/quiz/:quizId" element={<Quiz />} />}
+						{email && <Route path="/quiz/:quizId" element={<Quiz />} />}
+						{/* {<Route path="/quiz/:quizId" element={<Quiz />} />} */}
 						<Route path="quiz/check" element={<CheckAnswer />} />
 						<Route path="quiz/score" element={<EndScreen />} />
 						<Route path="/auth/signin" element={<Signin />} />
