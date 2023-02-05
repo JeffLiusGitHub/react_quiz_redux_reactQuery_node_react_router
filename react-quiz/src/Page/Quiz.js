@@ -10,7 +10,9 @@ import {
 	QuestionsContainer,
 	OptionButton,
 	NextButton,
-} from '../components/QuizStyle';
+} from './QuizStyle';
+import { Link } from 'react-router-dom';
+import { Button } from '@mui/material';
 const LottieAnimation = lazy(() => import('../components/LottieAnimation'));
 function Quiz() {
 	const [answerOption, setAnswerOption] = useState(null);
@@ -42,6 +44,7 @@ function Quiz() {
 		}
 		postAnswer(quizId, answerOption);
 		setOptionSelected(false);
+		setAnswerOption(null);
 	};
 
 	//
@@ -52,7 +55,7 @@ function Quiz() {
 		<Container>
 			<IconContainer>
 				<Suspense fallback={<div>Loading...</div>}>
-					<LottieAnimation fileType={'login'} />
+					<LottieAnimation fileType={'checklist'} />
 				</Suspense>
 			</IconContainer>
 			<QuizContainer>
@@ -87,20 +90,41 @@ function Quiz() {
 				</QuestionsContainer>
 
 				{quiz.end ? (
-					<NextButton to={'/quiz/check'}>
-						<OptionButton onClick={postAnswerHandler}>
+					<Button
+						variant="contained"
+						onClick={postAnswerHandler}
+						disabled={!optionSelected}
+					>
+						<Link
+							to={'/quiz/check'}
+							style={{
+								padding: '5px',
+								fontSize: '25px',
+								color: 'white',
+								textDecoration: 'none',
+							}}
+						>
 							Check Answer
-						</OptionButton>
-					</NextButton>
+						</Link>
+					</Button>
 				) : (
-					<NextButton to={`/quiz/${parseInt(quizId) + 1}`}>
-						<OptionButton
-							onClick={postAnswerHandler}
-							disabled={!optionSelected}
+					<Button
+						variant="contained"
+						onClick={postAnswerHandler}
+						disabled={!optionSelected}
+					>
+						<Link
+							to={`/quiz/${parseInt(quizId) + 1}`}
+							style={{
+								padding: '5px',
+								fontSize: '25px',
+								color: 'white',
+								textDecoration: 'none',
+							}}
 						>
 							Next Question
-						</OptionButton>
-					</NextButton>
+						</Link>
+					</Button>
 				)}
 			</QuizContainer>
 		</Container>

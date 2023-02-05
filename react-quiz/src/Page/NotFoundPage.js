@@ -18,12 +18,6 @@ const ErrorMessage = styled.h1`
 	font-size: 2rem;
 `;
 
-const ReturnLink = styled(Link)`
-	font-size: 1.2rem;
-	color: blue;
-	margin-top: 1rem;
-`;
-
 const NotFound = () => {
 	return (
 		<Container>

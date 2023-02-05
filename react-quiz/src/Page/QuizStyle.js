@@ -30,23 +30,23 @@ export const QuizContainer = styled.div`
 	justify-content: center;
 	display: flex;
 
-	background: radial-gradient(
-		circle,
-		rgba(207, 207, 251, 1) 0%,
-		rgba(148, 187, 233, 1) 100%
-	);
+	background: #dfe1e2;
 `;
 
 export const QuizHeader = styled.h1`
-	font-size: 32px;
+	font-size: 48px;
 	font-weight: bold;
 	margin-bottom: 16px;
+	width: 80%;
 `;
 
 export const QuestionsContainer = styled.div`
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+	justify-content: space-around;
+	width: 80%;
+	height: 60%;
 `;
 
 export const OptionButton = styled.button`
@@ -55,21 +55,26 @@ export const OptionButton = styled.button`
 	border-radius: 4px;
 	padding: 8px 16px;
 	margin-bottom: 8px;
-	font-size: 16px;
+	font-size: 36px;
+	width: 80%;
+	height: 15%;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
 
 	&:hover {
-		background-color: #000;
+		background-color: #b8d0f9;
 		color: #fff;
 		cursor: pointer;
 	}
 	&[data-selected='true'] {
-		background-color: #19c56d;
+		background-color: #7494fc;
 		color: #fff;
 	}
 `;
 
 export const NextButton = styled(Link)`
-	display: inline-block;
+	/* display: inline-block; */
 	background-color: #000;
 	color: #fff;
 	border-radius: 4px;
