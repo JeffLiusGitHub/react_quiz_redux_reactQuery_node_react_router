@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { mobile, laptop, tablet } from '../helpers/responsive';
 
 export const EndScreenContainer = styled.div`
 	display: flex;
@@ -12,9 +13,11 @@ export const EndScreenContainer = styled.div`
 export const QuizFinishedTitle = styled.h1`
 	font-size: 36px;
 	margin-bottom: 20px;
+	${mobile({ fontSize: '24px', marginButton: '15px' })}
 `;
 
 export const Score = styled.h1`
 	font-size: 24px;
 	margin-bottom: 20px;
+	${mobile({ fontSize: '12px', marginButton: '10px' })}
 `;

@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-
+import { mobile, laptop, tablet } from '../helpers/responsive';
+// ${tablet({ fontSize: '40px', flexDirection: 'column-reverse' })}
 export const Container = styled.div`
 	height: 100%;
 	width: 100%;
@@ -17,6 +18,7 @@ export const IconContainer = styled.div`
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	${laptop({ display: 'none' })};
 `;
 
 export const QuizContainer = styled.div`
@@ -30,6 +32,7 @@ export const QuizContainer = styled.div`
 	justify-content: center;
 	display: flex;
 	background: #dfe1e2;
+	${laptop({ width: '100%' })};
 `;
 
 export const QuizHeader = styled.h1`
@@ -37,6 +40,7 @@ export const QuizHeader = styled.h1`
 	font-weight: bold;
 	margin-bottom: 16px;
 	width: 80%;
+	${mobile({ fontSize: '24px' })}
 `;
 
 export const QuestionsContainer = styled.div`
@@ -57,9 +61,11 @@ export const OptionButton = styled.button`
 	font-size: 36px;
 	width: 80%;
 	height: 15%;
+	min-height: 60px;
 	white-space: nowrap;
 	overflow: hidden;
 	text-overflow: ellipsis;
+	${mobile({ fontSize: '24px', width: '100%', padding: '4px 8px' })}
 
 	&:hover {
 		background-color: #b8d0f9;

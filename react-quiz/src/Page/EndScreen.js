@@ -7,7 +7,7 @@ import {
 import { useSelector } from 'react-redux';
 import { EndScreenContainer, QuizFinishedTitle, Score } from './EndScreenStyle';
 import { convertUserName } from '../helpers/NameConvert';
-import CustomButton from './CustomButton';
+import CustomButton from '../components/CustomButton';
 const LottieAnimation = lazy(() => import('../components/LottieAnimation'));
 
 const EndScreen = () => {

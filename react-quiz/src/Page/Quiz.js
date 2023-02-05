@@ -11,6 +11,7 @@ import {
 	OptionButton,
 } from './QuizStyle';
 import CustomButton from '../components/CustomButton';
+
 const LottieAnimation = lazy(() => import('../components/LottieAnimation'));
 
 const options = ['A', 'B', 'C', 'D'];

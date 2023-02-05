@@ -1,7 +1,7 @@
 import './App.css';
 import LayoutComponent from './components/LayoutComponent';
 import Quiz from './Page/Quiz';
-import EndScreen from './components/EndScreen';
+import EndScreen from './Page/EndScreen';
 import { Route, Routes } from 'react-router-dom';
 import Signin from './Page/Signin';
 import Signup from './Page/Signup';

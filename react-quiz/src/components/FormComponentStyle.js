@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { mobile, laptop, tablet } from '../helpers/responsive';
 
 export const Container = styled.div`
 	height: 100%;
@@ -15,6 +16,7 @@ export const IconSection = styled.div`
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	${laptop({ display: 'none' })};
 `;
 
 export const FormSection = styled.div`
@@ -29,6 +31,7 @@ export const FormSection = styled.div`
 		rgba(207, 207, 251, 1) 0%,
 		rgba(148, 187, 233, 1) 100%
 	);
+	${laptop({ width: '100%' })};
 `;
 export const FormContainer = styled.form`
 	width: 50%;
@@ -41,6 +44,9 @@ export const FormContainer = styled.form`
 	box-shadow: 24px 24px 24px 24px rgba(0, 0, 0, 0.24);
 	border-radius: 10px;
 	min-height: 400px;
+	${laptop({ width: '60%' })};
+	${tablet({ width: '70%' })};
+	${mobile({ width: '90%' })};
 `;
 
 export const Form = styled.form`
@@ -56,6 +62,7 @@ export const Form = styled.form`
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
+	${mobile({ padding: '20px' })};
 `;
 
 export const Title = styled.h1`
@@ -83,6 +90,7 @@ export const Input = styled.input`
 	-ms-transition: all 0.3s ease-in-out;
 	-o-transition: all 0.3s ease-in-out;
 	transition: all 0.3s ease-in-out;
+	${laptop({ width: '80%' })};
 `;
 
 export const Button = styled.button`
