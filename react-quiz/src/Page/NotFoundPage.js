@@ -1,45 +1,53 @@
-import React from 'react';
+import React, { lazy, Suspense } from 'react';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-import background from '../assets/mathBackground.jpg';
+// import { Button } from './WelcomePage';
+import { Button } from '@mui/material';
+const LottieAnimation = lazy(() => import('../components/LottieAnimation'));
 
-const BackgroundContainer = styled.div`
-  background-image: url(${background});
-  background-size: cover;
-  backdrop-filter: blur(5px);
-  height: 100vh;
-  width: 100%;
-  position: absolute;
-  z-index: 1;
+const Container = styled.div`
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	height: 100vh;
+	background-color: rgba(61, 61, 237, 0.249);
 `;
 
-const ContentContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
-  width: 100%;
-  position: relative;
-  z-index: 10;
+const ErrorMessage = styled.h1`
+	font-size: 2rem;
 `;
 
-const SloganContainer = styled.div`
-  font-family: Arial, sans-serif;
-  font-size: 34px;
-  text-align: center;
+const ReturnLink = styled(Link)`
+	font-size: 1.2rem;
+	color: blue;
+	margin-top: 1rem;
 `;
 
-const WelcomePage = () => {
-  return (
-    <>
-      <BackgroundContainer />
-      <ContentContainer>
-        <SloganContainer>
-          Greetings! Are you ready to log in and explore the amazing world of mathematics? Let's log in and begin!
-        </SloganContainer>
-      </ContentContainer>
-    </>
-  );
+const NotFound = () => {
+	return (
+		<Container>
+			<Suspense fallback={<div>Loading...</div>}>
+				<div style={{ width: '20%' }}>
+					<LottieAnimation fileType={'noResult'} />
+				</div>
+			</Suspense>
+			<ErrorMessage>404 Not Found</ErrorMessage>
+			<Button variant="contained">
+				<Link
+					to={'/'}
+					style={{
+						padding: '5px',
+						fontSize: '25px',
+						color: 'white',
+						textDecoration: 'none',
+					}}
+				>
+					Back Home
+				</Link>
+			</Button>
+		</Container>
+	);
 };
 
-export default WelcomePage;
+export default NotFound;
