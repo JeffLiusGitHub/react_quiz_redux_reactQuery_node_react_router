@@ -9,11 +9,11 @@ import {
 	QuizHeader,
 	QuestionsContainer,
 	OptionButton,
-	NextButton,
 } from './QuizStyle';
-import { Link } from 'react-router-dom';
-import { Button } from '@mui/material';
+import CustomButton from '../components/CustomButton';
 const LottieAnimation = lazy(() => import('../components/LottieAnimation'));
+
+const options = ['A', 'B', 'C', 'D'];
 function Quiz() {
 	const [answerOption, setAnswerOption] = useState(null);
 	const [optionSelected, setOptionSelected] = useState(false);
@@ -25,8 +25,7 @@ function Quiz() {
 		setOptionSelected(true);
 	};
 
-	const { quiz, loadingQuiz, isError, error, success } =
-		useReactQueryWithQuiz(quizId);
+	const { quiz, loadingQuiz, isError } = useReactQueryWithQuiz(quizId);
 	if (loadingQuiz) {
 		return <div>Loading...</div>;
 	}
@@ -36,20 +35,10 @@ function Quiz() {
 	}
 
 	const postAnswerHandler = () => {
-		const options = ['A', 'B', 'C', 'D'];
-
-		if (!options.includes(answerOption)) {
-			alert('please select a chooice first');
-			return;
-		}
 		postAnswer(quizId, answerOption);
 		setOptionSelected(false);
 		setAnswerOption(null);
 	};
-
-	//
-
-	//
 
 	return (
 		<Container>
@@ -63,68 +52,30 @@ function Quiz() {
 					{quiz.id}: {quiz.question}
 				</QuizHeader>
 				<QuestionsContainer>
-					<OptionButton
-						data-selected={answerOption === 'A'}
-						onClick={() => chooseOption('A')}
-					>
-						{quiz.A}
-					</OptionButton>
-					<OptionButton
-						data-selected={answerOption === 'B'}
-						onClick={() => chooseOption('B')}
-					>
-						{quiz.B}
-					</OptionButton>
-					<OptionButton
-						data-selected={answerOption === 'C'}
-						onClick={() => chooseOption('C')}
-					>
-						{quiz.C}
-					</OptionButton>
-					<OptionButton
-						data-selected={answerOption === 'D'}
-						onClick={() => chooseOption('D')}
-					>
-						{quiz.D}
-					</OptionButton>
+					{options.map((option) => (
+						<OptionButton
+							key={option}
+							data-selected={answerOption === option}
+							onClick={() => chooseOption(option)}
+						>
+							{quiz[option]}
+						</OptionButton>
+					))}
 				</QuestionsContainer>
-
 				{quiz.end ? (
-					<Button
-						variant="contained"
+					<CustomButton
+						toUrl={'/quiz/check'}
+						buttonContent={'Check Answer'}
 						onClick={postAnswerHandler}
 						disabled={!optionSelected}
-					>
-						<Link
-							to={'/quiz/check'}
-							style={{
-								padding: '5px',
-								fontSize: '25px',
-								color: 'white',
-								textDecoration: 'none',
-							}}
-						>
-							Check Answer
-						</Link>
-					</Button>
+					/>
 				) : (
-					<Button
-						variant="contained"
+					<CustomButton
+						toUrl={`/quiz/${parseInt(quizId) + 1}`}
+						buttonContent={'Next Question'}
 						onClick={postAnswerHandler}
 						disabled={!optionSelected}
-					>
-						<Link
-							to={`/quiz/${parseInt(quizId) + 1}`}
-							style={{
-								padding: '5px',
-								fontSize: '25px',
-								color: 'white',
-								textDecoration: 'none',
-							}}
-						>
-							Next Question
-						</Link>
-					</Button>
+					/>
 				)}
 			</QuizContainer>
 		</Container>

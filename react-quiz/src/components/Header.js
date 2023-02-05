@@ -6,7 +6,6 @@ import ListItemButton from '@mui/material/ListItemButton';
 import ListItemText from '@mui/material/ListItemText';
 import QuizIcon from '@mui/icons-material/Quiz';
 import Toolbar from '@mui/material/Toolbar';
-
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { convertUserName } from '../helpers/NameConvert';
@@ -20,11 +19,14 @@ const Header = () => {
 		email && { label: 'SIGNOUT', href: '/auth/signout' },
 	]
 		.filter((linkConfig) => linkConfig)
-		.map(({ label, href }, key) => {
-			console.log(label);
+		.map(({ label, href }) => {
 			return (
-				<Link to={href} style={{ textDecoration: 'none', color: 'white' }}>
-					<ListItem key={label} disablePadding>
+				<Link
+					to={href}
+					key={label}
+					style={{ textDecoration: 'none', color: 'white' }}
+				>
+					<ListItem disablePadding>
 						<ListItemButton sx={{ textAlign: 'center' }}>
 							<ListItemText primary={label} />
 						</ListItemButton>
@@ -36,7 +38,7 @@ const Header = () => {
 		<Box sx={{ width: '100%' }}>
 			<AppBar
 				position="sticky"
-				style={{ height: '60px', backgroundColor: 'darkBlue' }}
+				style={{ height: '60px', backgroundColor: '#4549B2' }}
 			>
 				<Toolbar
 					style={{
@@ -46,7 +48,7 @@ const Header = () => {
 					}}
 				>
 					<Link
-						to={'/auth/signin'}
+						to={'/'}
 						style={{
 							textDecoration: 'none',
 							color: 'white',

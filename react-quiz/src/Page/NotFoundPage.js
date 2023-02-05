@@ -1,22 +1,8 @@
 import React, { lazy, Suspense } from 'react';
 import { Link } from 'react-router-dom';
-import styled from 'styled-components';
-// import { Button } from './WelcomePage';
 import { Button } from '@mui/material';
+import { Container, ErrorMessage } from './NotFoundPageStyle';
 const LottieAnimation = lazy(() => import('../components/LottieAnimation'));
-
-const Container = styled.div`
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
-	height: 100vh;
-	background-color: rgba(61, 61, 237, 0.249);
-`;
-
-const ErrorMessage = styled.h1`
-	font-size: 2rem;
-`;
 
 const NotFound = () => {
 	return (

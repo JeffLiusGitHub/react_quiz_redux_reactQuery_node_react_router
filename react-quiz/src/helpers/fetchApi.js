@@ -1,10 +1,10 @@
 import axios from 'axios';
-import { QueryClient, useQuery } from '@tanstack/react-query';
+import { useQuery } from '@tanstack/react-query';
 
 const BASE_URL = 'http://localhost:8080';
+
 const fetchQuiz = async ({ queryKey }) => {
-	const [_, quizId] = queryKey;
-	console.log(quizId);
+	const [, quizId] = queryKey;
 	const response = await axios.get(`${BASE_URL}/quiz/${quizId}`);
 	const products = response.data;
 	return products;
@@ -65,7 +65,6 @@ export const useReactQueryWithQuizTitle = () => {
 		success: isSuccess,
 	};
 };
-
 
 export const useReactQueryWithFetchScore = () => {
 	const { isError, isSuccess, isLoading, data, error } = useQuery(

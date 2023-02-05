@@ -1,7 +1,6 @@
 import React from 'react';
 import lottie from 'lottie-web';
 import { useEffect, useRef } from 'react';
-// import classes from './LottieAnimation.module.css';
 
 const LottieAnimation = ({ fileType }) => {
 	const container = useRef(null);

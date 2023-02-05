@@ -7,6 +7,7 @@ const UseRequest = ({ url, method, body, onSuccess }) => {
 	const [error, setError] = useState(null);
 	const dispatch = useDispatch();
 	const BASEURL = 'http://localhost:8080';
+
 	const doRequest = async () => {
 		dispatch(loginStart());
 		try {
@@ -14,6 +15,7 @@ const UseRequest = ({ url, method, body, onSuccess }) => {
 			const response = await axios[method](`${BASEURL}${url}`, {
 				...body,
 			});
+
 			dispatch(loginSuccess(response.data));
 			if (onSuccess) {
 				onSuccess(response.data);

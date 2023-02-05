@@ -1,21 +1,18 @@
 import './App.css';
 import LayoutComponent from './components/LayoutComponent';
-import Menu from './components/Menu';
 import Quiz from './Page/Quiz';
 import EndScreen from './components/EndScreen';
 import { Route, Routes } from 'react-router-dom';
 import Signin from './Page/Signin';
 import Signup from './Page/Signup';
 import Signout from './Page/Signout';
-import CheckAnswer from './components/CheckAnswer';
-// import welcome from './Page/WelcomePage';
-// import notFound from './Page/'
+import CheckAnswer from './Page/CheckAnswer';
 import WelcomePage from './Page/WelcomePage';
 import NotFoundPage from './Page/NotFoundPage';
 import ErrorBoundary from './ErrorBoundary/ErrorBoundary';
 import { useSelector } from 'react-redux';
 import { Container } from './AppStyle';
-// ['menu', 'playing', 'finished']
+
 function App() {
 	const { email } = useSelector((state) => state.user);
 

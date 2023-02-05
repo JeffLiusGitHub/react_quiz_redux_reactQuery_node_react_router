@@ -29,7 +29,6 @@ export const QuizContainer = styled.div`
 	flex-direction: column;
 	justify-content: center;
 	display: flex;
-
 	background: #dfe1e2;
 `;
 
@@ -74,7 +73,6 @@ export const OptionButton = styled.button`
 `;
 
 export const NextButton = styled(Link)`
-	/* display: inline-block; */
 	background-color: #000;
 	color: #fff;
 	border-radius: 4px;

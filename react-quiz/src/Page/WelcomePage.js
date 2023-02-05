@@ -1,9 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 import background from '../assets/background.jpg';
-// import { Button } from '@mui/material';
-import { Link } from 'react-router-dom';
-import { Button } from '@mui/material';
+import CustomButton from '../components/CustomButton';
+
 const BackgroundContainer = styled.div`
 	background-image: url(${background});
 	background-size: cover;
@@ -46,19 +45,7 @@ const WelcomePage = () => {
 					</h3>
 					<h3>Let's log in and begin!</h3>
 				</SloganContainer>
-				<Button variant="contained">
-					<Link
-						to={'auth/signin'}
-						style={{
-							padding: '5px',
-							fontSize: '25px',
-							color: 'white',
-							textDecoration: 'none',
-						}}
-					>
-						SIGN IN
-					</Link>
-				</Button>
+				<CustomButton toUrl={'auth/signin'} buttonContent={'SIGN IN'} />
 			</ContentContainer>
 		</>
 	);

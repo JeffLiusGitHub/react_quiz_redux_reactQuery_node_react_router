@@ -24,14 +24,13 @@ export const FormSection = styled.div`
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	/* background: rgb(61, 61, 237); */
 	background: radial-gradient(
 		circle,
 		rgba(207, 207, 251, 1) 0%,
 		rgba(148, 187, 233, 1) 100%
 	);
 `;
-export const FormContainer = styled.div`
+export const FormContainer = styled.form`
 	width: 50%;
 	height: 60%;
 	background-color: #f2f2fd;
@@ -73,8 +72,7 @@ export const Input = styled.input`
 	height: 40px;
 	text-decoration: none;
 	display: inline-block;
-	text-transform: uppercase;
-	font-size: 13px;
+	font-size: 24px;
 	-webkit-box-shadow: 0 10px 30px 0 rgba(95, 186, 233, 0.4);
 	box-shadow: 0 10px 30px 0 rgba(95, 186, 233, 0.4);
 	-webkit-border-radius: 5px 5px 5px 5px;
@@ -94,7 +92,7 @@ export const Button = styled.button`
 	color: white;
 	border-radius: 5px;
 	border: none;
-	font-size: 16px;
+	font-size: 24px;
 	cursor: pointer;
 	transition: 0.3s ease-in-out;
 	background-color: #56baed;

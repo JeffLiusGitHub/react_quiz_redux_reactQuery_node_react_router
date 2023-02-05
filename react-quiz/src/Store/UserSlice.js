@@ -29,7 +29,6 @@ const userSlice = createSlice({
 			state.currentUser = null;
 			state.JWT = null;
 			state.isLogin = false;
-			state.isAdmin = false;
 		},
 	},
 });
