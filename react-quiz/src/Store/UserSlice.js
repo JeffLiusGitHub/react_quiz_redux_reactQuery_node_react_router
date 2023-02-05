@@ -27,8 +27,8 @@ const userSlice = createSlice({
 		},
 		logOut: (state) => {
 			state.currentUser = null;
-			state.JWT = null;
 			state.isLogin = false;
+			state.email = null;
 		},
 	},
 });

@@ -6,7 +6,7 @@ export const BackgroundContainer = styled.div`
 	background-image: url(${background});
 	background-size: cover;
 	backdrop-filter: blur(5px);
-	height: 100vh;
+	height: 100%;
 	width: 100%;
 	position: absolute;
 	z-index: 1;
@@ -17,8 +17,8 @@ export const ContentContainer = styled.div`
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
-	height: 100vh;
-	width: 100vw;
+	height: 100%;
+	width: 100%;
 	position: relative;
 	z-index: 10;
 	${mobile({ padding: '5px' })}

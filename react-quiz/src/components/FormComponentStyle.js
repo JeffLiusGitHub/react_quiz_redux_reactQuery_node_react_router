@@ -20,7 +20,6 @@ export const IconSection = styled.div`
 `;
 
 export const FormSection = styled.div`
-	margin-top: 30px;
 	width: 70%;
 	height: 100%;
 	display: flex;

@@ -21,6 +21,7 @@ const UseRequest = ({ url, method, body, onSuccess }) => {
 			return response.data;
 		} catch (err) {
 			dispatch(loginFailure());
+
 			setError(
 				<>
 					{err?.response?.data?.errors?.length > 0 && (
