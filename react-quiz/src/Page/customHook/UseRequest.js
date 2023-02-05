@@ -1,11 +1,7 @@
 import { useState } from 'react';
 import axios from 'axios';
 import React from 'react';
-import {
-	loginFailure,
-	loginStart,
-	loginSuccess,
-} from '../../../Store/UserSlice';
+import { loginFailure, loginStart, loginSuccess } from '../../Store/UserSlice';
 import { useDispatch } from 'react-redux';
 const UseRequest = ({ url, method, body, onSuccess }) => {
 	const [error, setError] = useState(null);

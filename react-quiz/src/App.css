@@ -1,13 +1,12 @@
 .App {
 	text-align: center;
-	font-family: 'Lobster', cursive;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	flex-direction: column;
 }
 
-.Menu {
+/* .Menu {
 	width: 500px;
 	height: 500px;
 	border-radius: 10px;
@@ -70,4 +69,4 @@ button:hover {
 
 h3 {
 	color: #ffffff;
-}
+} */

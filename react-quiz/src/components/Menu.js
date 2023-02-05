@@ -8,12 +8,11 @@ function Menu() {
 				type="text"
 				placeholder="Ex. John Smith"
 				onChange={(event) => {
-					//   setUserName(event.target.value);
+
 				}}
 			/>
 			<button
 				onClick={() => {
-					//   setGameState("playing");
 				}}
 			>
 				Start Quiz

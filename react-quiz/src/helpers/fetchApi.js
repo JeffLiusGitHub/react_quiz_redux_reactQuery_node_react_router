@@ -66,20 +66,6 @@ export const useReactQueryWithQuizTitle = () => {
 	};
 };
 
-// export const useReactQueryWithPostAnswer = (quizId, answerOption) => {
-// 	const { isError, isSuccess, isLoading, data, error } = useQuery(
-// 		['quizId', quizId, answerOption],
-// 		postAnswer
-// 	);
-
-// 	return {
-// 		quiz: data,
-// 		loadingQuiz: isLoading,
-// 		isError,
-// 		error,
-// 		success: isSuccess,
-// 	};
-// };
 
 export const useReactQueryWithFetchScore = () => {
 	const { isError, isSuccess, isLoading, data, error } = useQuery(
