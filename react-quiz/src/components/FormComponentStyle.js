@@ -13,6 +13,7 @@ export const IconSection = styled.div`
 	width: 30%;
 	height: 100%;
 	background-color: rgba(61, 61, 237, 0.249);
+	/* background-color: linear-gradient(160deg, #5e7ef9 15%, #ffa2ba 70%); */
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -25,12 +26,21 @@ export const FormSection = styled.div`
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	background: radial-gradient(
-		circle,
-		rgba(207, 207, 251, 1) 0%,
-		rgba(148, 187, 233, 1) 100%
-	);
+	background: linear-gradient(160deg, #5e7ef9 15%, #ffa2ba 70%) !important;
+
 	${laptop({ width: '100%' })};
+`;
+export const FormBackground = styled.div`
+	position: absolute;
+	max-width: unset;
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background: linear-gradient(160deg, #5e7ef9 15%, #ffa2ba 70%) !important;
+	filter: blur(150px);
+	transform: skewY(-20deg) translateY(0) translateZ(0);
+	z-index: -100;
 `;
 export const FormContainer = styled.form`
 	width: 50%;

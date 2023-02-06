@@ -5,6 +5,7 @@ import {
 	Container,
 	IconSection,
 	FormSection,
+	FormBackground,
 	FormContainer,
 	Title,
 	Input,
@@ -58,6 +59,7 @@ const FormComponent = ({ title, animationType, fetchUrl, onSuccess }) => {
 					<Button onClick={onSubmit}>{title.toUpperCase()}</Button>
 					{error}
 				</FormContainer>
+				<FormBackground />
 			</FormSection>
 		</Container>
 	);

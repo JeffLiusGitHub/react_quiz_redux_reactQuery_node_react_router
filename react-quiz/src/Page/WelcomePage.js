@@ -19,7 +19,11 @@ const WelcomePage = () => {
 					</h3>
 					<h3>Let's log in and begin!</h3>
 				</SloganContainer>
-				<CustomButton toUrl={'auth/signin'} buttonContent={'SIGN IN'} />
+				<CustomButton
+					toUrl={'auth/signin'}
+					buttonContent={'SIGN IN'}
+					style={{ fontSize: '100px' }}
+				/>
 			</ContentContainer>
 		</>
 	);

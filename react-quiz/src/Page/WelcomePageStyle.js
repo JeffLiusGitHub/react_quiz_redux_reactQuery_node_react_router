@@ -1,9 +1,9 @@
 import styled from 'styled-components';
-import background from '../assets/background.jpg';
+import landingBackground from '../assets/landingPage.svg';
 import { mobile, laptop, tablet } from '../helpers/responsive';
 
 export const BackgroundContainer = styled.div`
-	background-image: url(${background});
+	background-image: url(${landingBackground});
 	background-size: cover;
 	backdrop-filter: blur(5px);
 	height: 100%;
